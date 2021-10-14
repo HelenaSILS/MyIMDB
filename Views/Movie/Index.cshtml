@@ -1,0 +1,85 @@
+﻿@{
+    //Layout = null;
+    var pi = 3.14;
+    var rnd = new Random();
+    var randomNumber = rnd.Next(1, 100);
+    var primes = new int[] { 2, 3, 5, 7, 11 };
+
+    var movie1 = new { Rank = 6, Title = "Clockwork Orange", Year = 1980 };
+    var movie2 = new { Rank = 6, Title = "Parasite", Year = 2019 };
+
+    var moviesList = new[] { movie1, movie2 }.ToList();
+
+    }
+<!DOCTYPEhtml>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    @if (ViewBag.Message != null)
+    {
+        <div class="alert alert-info">
+            <p>@ViewBag.Message</p>
+        </div>
+    }
+    <title>Index</title>
+    <script src="https://kit.fontawesome.com/3a41302a5b.js" crossorigin="anonymous"></script>
+</head>
+<body>
+        <div>
+            @if (randomNumber % 2 == 0)
+            {
+                <b> The generated random number @randomNumber is even </b>
+            }
+            else
+            {
+                <b>The generated random number @randomNumber is odd </b>
+            }
+        </div>
+        <div>
+            List of first Prime numbers: <br/>
+            <ul>
+                @foreach (var p in primes)
+                {
+                <li>@p</li>
+                }
+            </ul>
+        </div>
+        @using MyIMDB.ViewModels
+        @model List<MovieListViewModel>
+        @{ 
+
+        }
+
+<div class="container">
+    <h3>Movies</h3>
+    <div class="row">
+        <div class="col-sm-6">
+            <h4>Title</h4>
+        </div>
+        <div class="col-sm-1">
+            <h5>Rank</h5>
+        </div>
+        <div class="col-sm-1">
+            <h5>Year</h5>
+        </div>
+    </div>
+    @foreach (var movie in Model)
+    {
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <a>@movie.Title</a>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <a>@movie.Rank</a>
+            </div>
+            <div class="col-md-1">
+                <a>@movie.Year</a>
+            </div>
+        </div>
+    }
+</div>
+
+</body>
+</html>

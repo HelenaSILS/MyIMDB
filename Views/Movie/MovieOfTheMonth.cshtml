@@ -1,0 +1,49 @@
+﻿@model MyIMDB.Models.Movie
+
+@{
+    ViewData["Title"] = "Movie Of The Month";
+}
+
+<h1>Da Movie Of The Month</h1>
+
+<div>
+    <h4>This month is:</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            <i class="fas fa-film"></i>
+        </dt>
+        <dd class = "col-sm-10">
+
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Rank)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Rank)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Year)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StoryLine)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StoryLine)
+        </dd>
+    </dl>
+</div>
+<div>
+    @*<a class="bg-dark"> @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+        </a>*@
+    <a class="text-dark" asp-action="Index">Back to List</a>
+</div>
